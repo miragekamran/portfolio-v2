@@ -2,14 +2,14 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaReact, FaNodeJs, FaDatabas
 import { SiExpress, SiMongodb, SiFirebase, SiTailwindcss, SiJavascript, SiTypescript, SiCplusplus, SiPython, SiPostgresql } from 'react-icons/si'; // More specific tech icons
 
 export const personalInfo = {
-  name: "Mirage Kamran",
-  title: "Full Stack Developer",
-  email: "mirage.kamran@outlook.com",
-  linkedin: "https://linkedin.com/in/miragekamran",
-  github: "https://github.com/miragekamran",
-  resumeLink: "/MirageKamran.pdf", // Make sure your resume is in public/
-  bio: "Innovative Full Stack Developer passionate about creating seamless and impactful web solutions. Eager to leverage modern technologies to solve real-world problems and contribute to dynamic team environments.",
-  shortBio: "I build things for the web." // For Hero section
+    name: "Mirage Kamran",
+    title: "Full Stack Developer",
+    email: "mydynamicapplications@gmail.com",
+    linkedin: "https://linkedin.com/in/miragekamran",
+    github: "https://github.com/miragekamran",
+    resumeLink: "/MirageKamran.pdf", // Make sure your resume is in public/
+    bio: "Innovative Full Stack Developer passionate about creating seamless and impactful web solutions. Eager to leverage modern technologies to solve real-world problems and contribute to dynamic team environments.",
+    shortBio: "I build things for the web.", // For Hero section
 };
 
 export const education = [

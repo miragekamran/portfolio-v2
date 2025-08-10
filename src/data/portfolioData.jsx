@@ -24,9 +24,10 @@ export const education = [
     duration: "April 2018 - May 2020",
   },
   {
-    institution: "KPU IT Center",
-    degree: "Certificate in Computer Systems and Programming",
-    duration: "April 2004 - May 2005",
+    institution: "Yuba Community College",
+    degree: "Associate of Science in Computer Science",
+    duration: "January 2016 - May 2018",
+    score: "GPA: 3.8/4.0",
   },
 ];
 

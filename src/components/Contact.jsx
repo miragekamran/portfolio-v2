@@ -57,6 +57,8 @@ const Contact = () => {
         } catch (error) {
             console.error(error);
             alert("Something went wrong. Please try again.");
+            
+
         }
     };
 
@@ -77,12 +79,6 @@ const Contact = () => {
                         question, or just want to say hi, my inbox is always
                         open. I'll try my best to get back to you!
                     </p>
-                    {/* <a
-                      href={`mailto:${personalInfo.email}`}
-                      className="inline-block px-10 py-4 font-mono text-lg bg-accent-1 text-primary-bg rounded-md hover:bg-opacity-80 transition-all duration-300 shadow-lg hover:shadow-accent-1/30"
-                  >
-                      Say Hello
-                  </a> */}
 
                     {/* Contact form */}
                     <form onSubmit={handleSubmit} className="mt-10 text-left">

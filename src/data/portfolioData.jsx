@@ -76,7 +76,7 @@ export const projects = [
         date: "Jun 2020 – Jul 2020",
         githubLink: "https://github.com/BW-Anywhere-Fitness-4/be",
         // liveLink: "https://farm-connect-iota-psi.vercel.app/",
-        category: "UI/UX",
+        category: "Backend",
         icon: <FaReact size={24} className="text-accent-1" />,
     },
 ];

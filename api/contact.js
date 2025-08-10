@@ -1,6 +1,10 @@
 import nodemailer from "nodemailer";
 
-const sendEmail = async (req, res) => {
+export default async function handler(req, res) {
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method not allowed" });
+    }
+
     const { name, email, message } = req.body;
 
     if (!name || !email || !message) {
@@ -9,15 +13,15 @@ const sendEmail = async (req, res) => {
             .json({ error: "Name, email, and message are required" });
     }
 
+    // Create transporter for Gmail with App Password
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
+            user: process.env.EMAIL_USER, // your Gmail address
+            pass: process.env.EMAIL_PASS, // Gmail App Password, NOT your regular password
         },
     });
 
-    // Email to you (the site owner)
     const mailOptionsToOwner = {
         from: process.env.EMAIL_USER,
         to: process.env.EMAIL_USER,
@@ -25,25 +29,19 @@ const sendEmail = async (req, res) => {
         text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
     };
 
-    // Auto-reply email to the user
     const mailOptionsAutoReply = {
         from: process.env.EMAIL_USER,
         to: email,
         subject: `Thanks for contacting, ${name}!`,
-        text: `Hi ${name},\n\nThank you for reaching out! I will get back to you as soon as possible.\n\nBest regards,\nMirage Kamran`,
+        text: `Hi ${name},\n\nThank you for reaching out! I'll get back to you soon.\n\nBest regards.`,
     };
 
     try {
-        await transporter.sendMail(mailOptionsToOwner); // Send message to you
-        await transporter.sendMail(mailOptionsAutoReply); // Send auto-reply to user
-
-        res.status(200).json({
-            message: "Email sent successfully and auto-reply sent.",
-        });
+        await transporter.sendMail(mailOptionsToOwner);
+        await transporter.sendMail(mailOptionsAutoReply);
+        return res.status(200).json({ message: "Emails sent successfully." });
     } catch (error) {
-        console.error("Error sending email:", error);
-        res.status(500).json({ error: "Failed to send email" });
+        console.error("Error sending emails:", error);
+        return res.status(500).json({ error: "Failed to send emails." });
     }
-};
-
-export default sendEmail;
+}

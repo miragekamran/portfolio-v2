@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     });
 
     const mailOptionsToOwner = {
-        from: `"Portfolio contact" <${name}${process.env.EMAIL_USER}>`,
+        from: `"Portfolio Contact" <${name}${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_USER,
         subject: `New contact form submission from ${name}`,
         text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,

@@ -69,3 +69,4 @@ Thumbs.db
 # TypeScript (if added later)
 # ----------------------
 *.tsbuildinfo
+.vercel
